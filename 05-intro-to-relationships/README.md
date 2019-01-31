@@ -11,6 +11,21 @@ Brief recap! Yesterday we saw:
 
 ## Today
 
+### Rules about self
+
+1. If you're in a method, self is an instance.
+   If you're out of a method, self is the class.
+2. It's a keyword, so you never call myObject.self
+3. Methods are not only code like `obj.method()`,
+   but also `method()` and in that case, the obj is self.
+   This is called implicit self.
+
+## Rules about class Methods
+
+1. When we define them, they are named `def self.all`
+2. When we call them, they're called on a class, not the instance
+   so `Pokemon.all`
+
 Cool! Today we're going to:
 
 * Learn about self
@@ -29,4 +44,3 @@ Cool! Today we're going to:
   * We probably need a class variable for this!
   * What do we do if there are two trainers with the same name?
   * How can we tell them apart or make them unique?
-

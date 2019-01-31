@@ -19,4 +19,18 @@ class Trainer
   def give(trainer, pokemon)
     pokemon.trainer = trainer
   end
+
+  def pokemon
+    result = []
+    ## loop over all pokemon <---
+    Pokemon.all.each do |pokemon|
+      ## when pokemon.trainer is me
+      if pokemon.trainer == self
+        ## keep that pokemon
+        result << pokemon
+      end
+    end
+    # return the final list
+    result
+  end
 end
