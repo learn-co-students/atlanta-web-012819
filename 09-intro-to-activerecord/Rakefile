@@ -5,3 +5,8 @@ desc "Start our app console"
 task :console do
   Pry.start
 end
+
+desc "This is an example"
+task :example do
+  puts "Hi y'all! We just wrote a rake task! :D"
+end
