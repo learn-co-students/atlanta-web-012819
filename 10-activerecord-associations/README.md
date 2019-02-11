@@ -2,7 +2,7 @@
 
 ### Today's Objectives
 
-* Use associations to relate models (Post - Tag - PostTag)
+* Use associations to relate models (Article - Tag - ArticleTag)
 * See a seed file to put info in the database
 * Talk about a runfile and answer general questions
 
