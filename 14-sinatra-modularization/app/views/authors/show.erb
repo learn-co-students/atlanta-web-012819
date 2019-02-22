@@ -1,0 +1,15 @@
+<h2> <%= @author.name %> </h2>
+<form action="/authors/<%= @author.id%>/edit" method="GET">
+  <input type="submit" value="Edit">
+</form>
+<form action="/authors/<%= @author.id %>" method="POST">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Roast">
+</form>
+<ul>
+  <% @author.books.each do |book| %>
+    <a href="/books/<%= book.id %>">
+      <li><%= book.title %></li>
+    </a>
+  <% end %>
+</ul>

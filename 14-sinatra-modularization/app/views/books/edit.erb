@@ -4,7 +4,15 @@
   <input type="text" name="title" value="<%= @book.title %>">
   <br/>
   Author:
-  <input type="text" name="author" value="<%= @book.author.name %>">
+  <select name="author_id">
+    <% @authors.each do |author| %>
+      <% if @book.author == author %>
+        <option value="<%= author.id %>" selected><%= author.name %></option>
+      <% else %>
+        <option value="<%= author.id %>"><%= author.name %></option>
+      <% end %>
+    <% end %>
+  </select>
   <br/>
   Snippet:
   <input type="text" name="snippet" value="<%= @book.snippet %>">
