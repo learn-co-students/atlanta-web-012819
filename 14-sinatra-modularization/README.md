@@ -1,4 +1,14 @@
-## Sinatra and RESTful Routes
+## Sinatra and Modularization
+- MVC
+	- ActiveRecord Models
+	- ERB Views
+	- Sinatra Controllers
+- Separate controllers and model views
+- Linking
+- Layouts
+- Navigation
+
+## REST Routes (Review)
 
 | HTTP Verb | Action | Route               |
 | --------- | ------ | ------------------- |
@@ -9,17 +19,4 @@
 | GET       | edit   | /resources/:id/edit |
 | PATCH     | update | /resources/:id      |
 | PUT       | update | /resources/:id      |
-| DELETE    | delete | /resources/:id.     |
-
-- HTML Form supports GET and POST
-
-## Sinatra and MVC
-- Models
-- Views
-- Controllers
-
-## Sinatra and ActiveRecord
-- migrations
-- seeds
-
-## Layouts
+| DELETE    | delete | /resources/:id      |
