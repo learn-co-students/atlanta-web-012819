@@ -1,0 +1,10 @@
+<h1>New User</h1>
+
+<%= form_tag(users_path) do %>
+  <%= text_field_tag("name", nil, placeholder: "Name") %>
+  <%= text_field_tag("age", nil, placeholder: "Age") %>
+  <%= text_field_tag("occupation", nil, placeholder: "Occupation") %>
+  <%= submit_tag %>
+<% end %>
+
+<%= link_to("Homepage", homepage_path) %>
