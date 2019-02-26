@@ -1,0 +1,14 @@
+<h1><%= @user.name %></h1>
+<h2>Age: <%= @user.age %></h2>
+<h2>Job: <%= @user.occupation %></h2>
+
+<h4>Favorite Vacation Stuff</h4>
+<ul>
+  <% @user.events.each do |event| %>
+    <li><%= event.description %></li>
+  <% end %>
+</ul>
+
+<%= link_to("Edit this user", edit_user_path(@user)) %>
+
+<%= link_to("homepage", homepage_path) %>

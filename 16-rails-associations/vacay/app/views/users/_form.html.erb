@@ -1,0 +1,6 @@
+<%= form_for([@user, @pet]) do |f| %>
+  <%= f.text_field(:name, placeholder: "Name") %>
+  <%= f.text_field(:age, placeholder: "Age") %>
+  <%= f.text_field(:occupation, placeholder: "Job") %>
+  <%= f.submit %>
+<% end %>
