@@ -1,0 +1,13 @@
+<h1>Add a new Event</h1>
+
+<%= form_for(@event) do |f| %>
+  <%= f.label("Name") %>
+  <%= f.text_field(:name) %> <br />
+  <%= f.label("Fun Factor") %>
+  <%= f.number_field(:fun_factor) %>  <br />
+  <%= f.label("User ID") %>
+  <%= f.collection_select(:user_id, @users, :id, :name) %> <br />
+  <%= f.submit %>
+<% end %>
+
+<%= link_to("Homepage", homepage_path) %>

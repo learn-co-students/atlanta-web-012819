@@ -1,0 +1,14 @@
+<%= form_for(@user) do |f| %>
+  <%= f.text_field(:name, placeholder: "Name") %>
+  <%= f.text_field(:age, placeholder: "Age") %>
+  <%= f.text_field(:occupation, placeholder: "Job") %>
+
+  <h3>Things you like to do on vacation...</h3>
+  <%= f.fields_for(:events_attributes, @user.events.build) do |eventform| %>
+    <%= eventform.text_field(:name, placeholder: "Name") %>
+    <%= eventform.number_field(:fun_factor, placeholder: "Fun Factor") %>
+    <%= eventform.text_field(:name, placeholder: "Name") %>
+    <%= eventform.number_field(:fun_factor, placeholder: "Fun Factor") %>
+  <% end %>
+  <%= f.submit %>
+<% end %>
