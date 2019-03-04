@@ -6,7 +6,9 @@
     <% end %>
 </ul>
 
-<%= link_to("Add post", new_post_path) %>
+<% if current_user %>
+  <%= link_to("Add post", new_post_path) %>
+<% end %>
 
 <br/>
 

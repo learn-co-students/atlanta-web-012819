@@ -1,0 +1,25 @@
+class SessionsController < ApplicationController
+
+  def new
+  end
+
+  def create
+    user = User.find_by(username: params[:username])
+    if user && user.authenticate(params[:password])
+      ## its really them, log them in, and remember who they are
+      session[:user_id] = user.id
+      ## this should be stored in the browser and sent back in new reqs somehow
+      ## redirect to the homepage
+      redirect_to root_path
+    else
+      @message = "We couldn't log you in. Wrong username or password."
+      render :new
+    end
+  end
+
+  ## TODO: Probably add a route for this
+  def destroy
+    session[:user_id] = nil
+  end
+
+end

@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, except: [:new, :create, :index]
+  before_action :authorize!, except: [:show, :index]
 
   def new
     @users = User.all
@@ -7,7 +8,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
     if @post.save
       redirect_to post_path(@post)
     else

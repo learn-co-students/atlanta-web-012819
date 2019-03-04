@@ -1,5 +1,20 @@
 ## Rails Authentication
 
+
+### What problem does login solve?
+
+* Maintaining users information, connecting a user ID.
+* Keeping track of the current user, if there is one.
+* Validates that the current user is who they say they are.
+
+
+
+
+
+
+
+
+
 ## Step by Step(ish)
 
 1. Hmm, any user can edit or delete any post.
