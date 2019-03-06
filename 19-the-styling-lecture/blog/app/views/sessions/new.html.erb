@@ -1,0 +1,18 @@
+<h1>Login</h1>
+
+<% if @message %>
+  <h2>Errors</h2>
+  <p style="color: red"><%= @message %></p>
+<% end %>
+
+<%= form_tag(login_path, class: "ui form") do %>
+  <div class="field">
+    <%= label_tag("Username") %>
+    <%= text_field_tag(:username) %>
+  </div>
+  <div class="field">
+    <%= label_tag("Password") %>
+    <%= password_field_tag(:password) %>    
+  </div>
+  <%= submit_tag("Login", class: "ui primary button") %>
+<% end %>
