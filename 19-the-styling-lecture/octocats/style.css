@@ -1,0 +1,45 @@
+img {
+  width: 300px;
+}
+
+ul.authors img {
+  width: 25px;
+}
+
+li.octocat {
+  display: inline-block;
+}
+
+li.octocat img {
+  border: 1px solid lightgrey;
+}
+
+div.image-caption {
+  display: inline-block;
+}
+
+div.image-footer {
+  border-bottom: 1px solid lightgrey;
+}
+
+ul.authors {
+  display: inline-block;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+span.image-number {
+  color: grey;
+}
+
+span.image-number::before {
+  content: "#"
+}
+
+/* * {
+  border: 1px solid red;
+} */
