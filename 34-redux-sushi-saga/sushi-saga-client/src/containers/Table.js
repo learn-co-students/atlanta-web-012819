@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import { connect } from 'react-redux';
 
 const Table = (props) => {
 
@@ -11,17 +12,12 @@ const Table = (props) => {
   return (
     <Fragment>
       <h1 className="remaining">
-        You have: ${ /* Give me how much money I have left */ } remaining!
+        You have: ${ props.amount } remaining!
       </h1>
       <div className="table">
         <div className="stack">
           {
-            /* 
-               renderPlates takes an array 
-               and renders an empty plate
-               for every element in the array
-            */
-            renderPlates([])
+            renderPlates(props.eaten)
           }
         </div>
       </div>
@@ -29,4 +25,16 @@ const Table = (props) => {
   )
 }
 
-export default Table
+let mapStateToProps = (state) => {
+  return {
+    amount: state.budget.amount,
+    eaten: state.sushi.eaten
+  }
+}
+
+// const connectorFunction = connect(mapStateToProps)
+// console.log(connectorFunction)
+// const WrappedTable = connectorFunction(Table)
+// console.log(WrappedTable)
+
+export default connect(mapStateToProps)(Table)
