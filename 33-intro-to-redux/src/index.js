@@ -4,36 +4,52 @@ import "./index.css";
 import logo from "./logo.svg";
 import "./App.css";
 
+import { createStore } from 'redux';
+
+const initialState = {
+  count: 1
+}
+
+const rootReducer = (oldState = initialState, action) => {
+  console.log(oldState)
+  switch (action.type) {
+    case 'ADD': {
+      return { count: oldState.count + 1 }
+    }
+    case 'SUB': {
+      return { count: oldState.count - 1 }
+    }
+    default: return oldState
+  }
+}
+
+const store = createStore(rootReducer)
+console.log(store)
+console.log(store.getState())
+
+
 class App extends Component {
-  state = { count: 0 };
-
-  increment = () => {
-    this.setState(prevState => ({ count: prevState.count + 1 }));
-  };
-
-  decrement = () => {
-    this.setState(prevState => ({ count: prevState.count - 1 }));
-  };
-
   render() {
     return (
       <div className="App">
-        <Header count={this.state.count} />
-        <Counter
-          count={this.state.count}
-          increment={this.increment}
-          decrement={this.decrement}
-        />
+        <Header />
+        <Counter />
       </div>
     );
   }
 }
 
 class Header extends Component {
+  constructor() {
+    super();
+    store.subscribe(() => this.forceUpdate())
+  }
+
   renderDescription = () => {
-    const remainder = this.props.count % 5;
+    const count = store.getState().count;
+    const remainder = count % 5;
     const upToNext = 5 - remainder;
-    return `The current count is less than ${this.props.count + upToNext}`;
+    return `The current count is less than ${count + upToNext}`;
   };
 
   render() {
@@ -48,12 +64,17 @@ class Header extends Component {
 }
 
 class Counter extends Component {
+  constructor() {
+    super();
+    store.subscribe(() => this.forceUpdate())
+  }
+
   render() {
     return (
       <div className="Counter">
-        <h1>{this.props.count}</h1>
-        <button onClick={this.props.decrement}> - </button>
-        <button onClick={this.props.increment}> + </button>
+        <h1>{store.getState().count}</h1>
+        <button onClick={() => store.dispatch({ type: 'SUB' })}> - </button>
+        <button onClick={() => store.dispatch({ type: 'ADD' })}> + </button>
       </div>
     );
   }

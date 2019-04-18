@@ -1,11 +1,17 @@
 # Intro to Redux
 
-- What's hard about managing state in React
 - Introducing Redux
 - Designing our redux state
 - Dispatching actions to our store
 - Updating based on actions
 - Problems with this version of our redux app
+
+
+### What was hard about your mod 4 projects?
+
+*
+
+
 
 ## (Psst! Redux Terminology Cheatsheet)
 [Redux Terminology](https://gist.github.com/alexgriff/0e247dee73e9125177d9c04cec159cc6)
