@@ -15,7 +15,7 @@ const sushiReducer = (oldState = initialState, action) => {
       return { ...oldState, page: nextPage }
     }
     case 'EAT': {
-      return { ...oldState, eaten: oldState.eaten.concat(action.price) }
+      return { ...oldState, eaten: oldState.eaten.concat(action.id) }
     }
     default: { return oldState }
   }

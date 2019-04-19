@@ -4,10 +4,13 @@ const Sushi = (props) => {
   return (
     <div className="sushi">
       <div className="plate"
-           onClick={() => props.dispatch( { type: 'EAT', price: props.price } )}>
+           onClick={() => props.dispatch({
+             type: 'EAT',
+             price: props.price,
+             id: props.id
+           })}>
         {
-          /* Tell me if this sushi has been eaten! */
-          false ?
+          props.eaten.includes(props.id) ?
             null
           :
             <img src={props.img_url} width="100%" />

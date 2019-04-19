@@ -7,7 +7,7 @@ const SushiContainer = (props) => {
   return (
     <Fragment>
       <div className="belt">
-        { props.sushis.map(x => <Sushi {...x} dispatch={props.dispatch} /> ) }
+        { props.sushis.map(x => <Sushi {...x} eaten={props.eaten} dispatch={props.dispatch} /> ) }
         <MoreButton />
       </div>
     </Fragment>
@@ -15,11 +15,12 @@ const SushiContainer = (props) => {
 }
 
 const mapStateToProps = ({ sushi }) => {
-  const { page, menu } = sushi
+  const { page, menu, eaten } = sushi
   let startIndex = (page - 1) * 4
 
   return {
-    sushis: menu.slice(startIndex, startIndex + 4)
+    sushis: menu.slice(startIndex, startIndex + 4),
+    eaten: eaten
   }
 }
 
